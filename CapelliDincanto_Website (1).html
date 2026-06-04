@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capelli D'incanto — Daniela Calbi | Stigliano, Matera</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --purple:#4A1A6E;
+  --purple2:#6B2FA0;
+  --lavender:#C8A8E0;
+  --gold:#C8920A;
+  --cream:#FAF6FF;
+  --light:#F3ECFF;
+  --dark:#120820;
+  --text:#1A0830;
+  --muted:#7A6090;
+  --serif:'Cormorant Garamond',serif;
+  --sans:'Jost',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--text);font-family:var(--sans);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(18,8,32,.97);backdrop-filter:blur(12px);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(107,47,160,.3)}
+.nav-logo{font-family:var(--serif);font-size:18px;color:#fff;text-decoration:none;font-style:italic;letter-spacing:1px;line-height:1.1}
+.nav-logo small{display:block;font-size:8px;letter-spacing:3px;color:rgba(255,255,255,.35);font-family:var(--sans);font-style:normal;font-weight:500;text-transform:uppercase;margin-top:1px}
+.nav-book{background:var(--purple2);color:#fff;padding:8px 18px;font-size:11px;font-weight:600;text-decoration:none;letter-spacing:2px;text-transform:uppercase;border-radius:30px}
+
+/* HERO */
+.hero{height:100vh;position:relative;display:flex;align-items:flex-end;overflow:hidden}
+.hero-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=1400&q=90') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(18,8,32,.98) 0%,rgba(18,8,32,.55) 65%,rgba(18,8,32,.1) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 20px 56px;width:100%;text-align:center}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(200,168,224,.25);color:var(--lavender);padding:6px 16px;border-radius:30px;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
+.hero-title{font-family:var(--serif);font-size:60px;line-height:.88;color:#fff;margin-bottom:8px;font-style:italic;font-weight:700}
+.hero-title span{color:var(--lavender);display:block;font-size:44px}
+.hero-name{font-family:var(--serif);font-size:16px;color:rgba(255,255,255,.45);font-style:italic;letter-spacing:2px;margin-bottom:8px}
+.hero-roles{font-size:10px;color:var(--lavender);letter-spacing:4px;text-transform:uppercase;margin-bottom:24px;font-weight:600}
+.hero-divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:16px 0 20px}
+.hero-divider::before,.hero-divider::after{content:'';flex:1;max-width:40px;height:1px;background:rgba(200,168,224,.3)}
+.hero-divider span{color:var(--lavender);font-size:14px}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.5);line-height:1.8;max-width:380px;margin:0 auto 28px;font-weight:300;font-style:italic}
+.hero-cta{display:flex;flex-direction:column;gap:10px;max-width:280px;margin:0 auto}
+.btn-purple{background:var(--purple2);color:#fff;padding:14px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:block;text-align:center;border-radius:30px}
+.btn-ghost{border:1px solid rgba(255,255,255,.2);color:#fff;padding:12px;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:block;text-align:center;border-radius:30px}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:1fr 1fr;background:var(--purple2)}
+.stat{padding:18px 8px;text-align:center;border-right:1px solid rgba(255,255,255,.15);border-bottom:1px solid rgba(255,255,255,.15)}
+.stat:nth-child(even){border-right:none}
+.stat-num{font-family:var(--serif);font-size:28px;color:#fff;display:block;font-weight:700;line-height:1;font-style:italic}
+.stat-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px;display:block}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.g-cell{overflow:hidden;height:210px;position:relative}
+.g-cell img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block}
+.g-cell:hover img{transform:scale(1.05)}
+.g-label{position:absolute;bottom:10px;left:10px;background:rgba(18,8,32,.8);color:var(--lavender);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:20px;font-weight:600}
+
+/* DANIELA */
+.daniela{padding:56px 20px;background:var(--dark)}
+.daniela-img{width:100%;height:280px;object-fit:cover;border-radius:20px;margin-bottom:28px;object-position:top}
+.d-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--lavender);margin-bottom:10px;font-weight:600}
+.d-title{font-family:var(--serif);font-size:36px;color:#fff;font-style:italic;line-height:1.05;margin-bottom:8px}
+.d-rule{width:28px;height:1px;background:var(--purple2);margin:14px 0 18px}
+.daniela p{color:rgba(255,255,255,.5);line-height:1.9;font-size:14px;margin-bottom:14px;font-weight:300}
+.d-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.d-badge{border:1px solid rgba(107,47,160,.4);color:var(--lavender);padding:6px 14px;border-radius:20px;font-size:10px;font-weight:600;letter-spacing:.5px}
+
+/* SERVIZI */
+.servizi{padding:56px 20px;background:var(--light)}
+.sec-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--purple2);margin-bottom:10px;font-weight:600}
+.sec-title{font-family:var(--serif);font-size:38px;color:var(--dark);font-style:italic;line-height:1;margin-bottom:28px}
+.svc-grid{display:grid;grid-template-columns:1fr;gap:10px}
+.svc-card{background:#fff;padding:20px;border-radius:16px;display:flex;align-items:flex-start;gap:14px;transition:transform .3s;box-shadow:0 2px 12px rgba(107,47,160,.06)}
+.svc-card:hover{transform:translateY(-2px)}
+.svc-icon{font-size:26px;flex-shrink:0}
+.svc-name{font-family:var(--serif);font-size:18px;color:var(--dark);font-style:italic;margin-bottom:3px}
+.svc-desc{font-size:12px;color:var(--muted);line-height:1.6;font-weight:300}
+
+/* ACCADEMIA */
+.accademia{position:relative;height:300px;overflow:hidden}
+.accademia img{width:100%;height:100%;object-fit:cover;display:block}
+.acc-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(18,8,32,.92) 0%,rgba(74,26,110,.7) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+.acc-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--lavender);margin-bottom:10px;font-weight:600}
+.acc-title{font-family:var(--serif);font-size:36px;color:#fff;font-style:italic;line-height:1;margin-bottom:10px}
+.acc-sub{color:rgba(255,255,255,.55);font-size:13px;max-width:340px;font-weight:300;line-height:1.7}
+
+/* PRODOTTI */
+.prodotti{padding:56px 20px;background:var(--dark);text-align:center}
+.prod-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--lavender);margin-bottom:10px;font-weight:600}
+.prod-title{font-family:var(--serif);font-size:36px;color:#fff;font-style:italic;margin-bottom:16px}
+.prod-sub{color:rgba(255,255,255,.45);font-size:14px;line-height:1.9;max-width:440px;margin:0 auto 28px;font-weight:300}
+.prod-cards{display:grid;grid-template-columns:1fr;gap:10px}
+.prod-card{background:rgba(255,255,255,.06);border:1px solid rgba(107,47,160,.2);padding:20px;border-radius:16px;text-align:left}
+.prod-icon{font-size:28px;margin-bottom:10px;display:block}
+.prod-name{font-family:var(--serif);font-size:18px;color:#fff;font-style:italic;margin-bottom:4px}
+.prod-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.6;font-weight:300}
+
+/* RECENSIONI */
+.recensioni{padding:56px 20px;background:var(--light)}
+.rev-header{text-align:center;margin-bottom:28px}
+.rev-num{font-family:var(--serif);font-size:64px;color:var(--purple2);display:block;line-height:1;font-style:italic;font-weight:700}
+.rev-stars{color:var(--purple2);font-size:20px;letter-spacing:3px;margin:6px 0}
+.rev-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+.rev-grid{display:flex;flex-direction:column;gap:12px}
+.rev-card{background:#fff;padding:22px;border-radius:16px;border-top:3px solid var(--purple2)}
+.rev-text{font-family:var(--serif);font-size:15px;color:var(--dark);line-height:1.8;font-style:italic;margin-bottom:10px}
+.rev-author{font-size:11px;color:var(--purple2);letter-spacing:2px;text-transform:uppercase;font-weight:600}
+
+/* SOCIAL */
+.social{padding:40px 20px;background:var(--purple2);text-align:center}
+.soc-title{font-family:var(--serif);font-size:28px;color:#fff;font-style:italic;margin-bottom:6px}
+.soc-count{font-size:32px;font-weight:600;color:#fff;display:block;margin-bottom:4px}
+.soc-label{font-size:10px;color:rgba(255,255,255,.6);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;display:block}
+.soc-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.soc-btn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;padding:10px 22px;border-radius:30px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none}
+
+/* CONTATTI */
+.contatti{padding:56px 20px;background:var(--dark)}
+.ct-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--lavender);margin-bottom:10px;font-weight:600}
+.ct-title{font-family:var(--serif);font-size:34px;color:#fff;font-style:italic;line-height:1.05;margin-bottom:8px}
+.ct-rule{width:28px;height:1px;background:var(--purple2);margin:14px 0 18px}
+.ct-text{color:rgba(255,255,255,.45);font-size:14px;line-height:1.8;margin-bottom:24px;font-weight:300}
+.c-item{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.c-icon{width:36px;height:36px;background:rgba(107,47,160,.35);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.c-info strong{color:#fff;display:block;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.c-info a,.c-info span{color:rgba(255,255,255,.45);font-size:13px;text-decoration:none}
+.c-info a:hover{color:var(--lavender)}
+.orari{background:rgba(255,255,255,.05);border:1px solid rgba(107,47,160,.2);border-radius:16px;padding:24px;margin-top:24px}
+.orari-title{font-family:var(--serif);font-size:20px;color:#fff;font-style:italic;margin-bottom:16px}
+.o-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:13px}
+.o-day{color:rgba(255,255,255,.45)}
+.o-time{color:#fff;font-weight:600}
+.o-closed{color:rgba(255,255,255,.2)}
+.wa-btn-wrap{margin-top:16px;text-align:center}
+.wa-btn{background:var(--purple2);color:#fff;padding:14px 32px;border-radius:30px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;width:100%;text-align:center}
+
+/* FOOTER */
+footer{background:var(--dark);padding:24px 20px;border-top:1px solid rgba(107,47,160,.2);text-align:center}
+.footer-logo{font-family:var(--serif);font-size:22px;color:#fff;font-style:italic}
+.footer-logo span{color:var(--lavender)}
+.footer-sub{font-size:9px;color:rgba(255,255,255,.25);margin:4px 0 8px;letter-spacing:3px;text-transform:uppercase}
+.footer-info{color:rgba(255,255,255,.3);font-size:12px;line-height:1.9}
+
+/* DESKTOP */
+@media(min-width:768px){
+  nav{padding:16px 60px}
+  .hero-content{padding:0 60px 80px;text-align:left}
+  .hero-divider{justify-content:flex-start}
+  .hero-sub{margin-left:0;max-width:440px}
+  .hero-cta{flex-direction:row;max-width:none}
+  .btn-purple,.btn-ghost{width:auto;display:inline-block;padding-left:32px;padding-right:32px}
+  .stats{grid-template-columns:repeat(4,1fr)}
+  .stat{border-bottom:none}
+  .stat:nth-child(even){border-right:1px solid rgba(255,255,255,.15)}
+  .gallery{grid-template-columns:repeat(4,1fr)}
+  .g-cell{height:260px}
+  .daniela{padding:100px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .daniela-img{height:540px;margin-bottom:0}
+  .servizi{padding:100px 60px}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .accademia{height:400px}
+  .prodotti{padding:100px 60px}
+  .prod-cards{grid-template-columns:repeat(3,1fr)}
+  .recensioni{padding:100px 60px}
+  .rev-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;flex-direction:unset}
+  .contatti{padding:100px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px}
+  .orari{margin-top:0}
+  footer{padding:32px 60px;display:flex;justify-content:space-between;align-items:center;text-align:left}
+  .footer-sub{margin:3px 0 0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Capelli D'incanto<small>Daniela Calbi · Stigliano, Matera</small></a>
+  <a href="https://wa.me/393286917016" target="_blank" class="nav-book">💬 Prenota</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">✨ 19K Follower · Hairstylist · Teacher · Colorist</div>
+    <h1 class="hero-title">Capelli<span>D'incanto</span></h1>
+    <p class="hero-name">Daniela Calbi</p>
+    <p class="hero-roles">✦ Hairstylist · Teacher · Colorist · Stigliano, Matera ✦</p>
+    <div class="hero-divider"><span>✦</span></div>
+    <p class="hero-sub">"Benessere per i tuoi capelli — con la linea naturale, biologica e vegana firmata Daniela Calbi."</p>
+    <div class="hero-cta">
+      <a href="https://wa.me/393286917016" target="_blank" class="btn-purple">💬 Prenota su WhatsApp</a>
+      <a href="#servizi" class="btn-ghost">I Nostri Servizi →</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><span class="stat-num">19K</span><span class="stat-label">Follower Instagram</span></div>
+  <div class="stat"><span class="stat-num">4.9★</span><span class="stat-label">Valutazione</span></div>
+  <div class="stat"><span class="stat-num">✅</span><span class="stat-label">Teacher Accademia</span></div>
+  <div class="stat"><span class="stat-num">🌿</span><span class="stat-label">Linea Naturale</span></div>
+</div>
+
+<!-- GALLERY — all unique images -->
+<div class="gallery">
+  <div class="g-cell">
+    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=600&q=80" alt="Balayage">
+    <div class="g-label">Balayage</div>
+  </div>
+  <div class="g-cell">
+    <img src="https://images.unsplash.com/photo-1574182245530-967d9b3831af?w=600&q=80" alt="Colorazione">
+    <div class="g-label">Colorazione</div>
+  </div>
+  <div class="g-cell">
+    <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=600&q=80" alt="Extensions">
+    <div class="g-label">Extensions</div>
+  </div>
+  <div class="g-cell">
+    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Salone">
+    <div class="g-label">Il Salone</div>
+  </div>
+</div>
+
+<!-- DANIELA -->
+<section class="daniela" id="chi-siamo">
+  <img class="daniela-img" src="https://images.unsplash.com/photo-1580618432129-48b8b57e0c27?w=800&q=80" alt="Daniela Calbi Hairstylist">
+  <div>
+    <p class="d-tag">Daniela Calbi</p>
+    <h2 class="d-title">Non Solo Parrucchiera — Un'Artista del Capello</h2>
+    <div class="d-rule"></div>
+    <p>Daniela Calbi non è solo una parrucchiera — è un'artista, una docente e una innovatrice nel mondo della bellezza. Con 19.000 follower su Instagram e una presenza nelle competizioni di bellezza internazionali, Daniela porta l'eccellenza nella piccola Stigliano.</p>
+    <p>Docente di Accademia per Hairstylist, specializzata in colori avanzati, acconciature in 3D e tagli di qualsiasi genere — Daniela forma le nuove generazioni di stylist e allo stesso tempo cura ogni cliente con attenzione e passione.</p>
+    <div class="d-badges">
+      <div class="d-badge">✨ 19K Instagram</div>
+      <div class="d-badge">🎓 Teacher Accademia</div>
+      <div class="d-badge">🎨 Colorist Avanzata</div>
+      <div class="d-badge">🌿 Linea Bio/Vegan</div>
+      <div class="d-badge">🏆 Concorsi Bellezza</div>
+      <div class="d-badge">👗 Sfilate Moda</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIZI -->
+<section class="servizi" id="servizi">
+  <p class="sec-tag">Servizi</p>
+  <h2 class="sec-title">L'Arte di Daniela</h2>
+  <div class="svc-grid">
+    <div class="svc-card"><span class="svc-icon">🎨</span><div><div class="svc-name">Balayage & Colorazione Avanzata</div><p class="svc-desc">Tecnica professionale e personalizzata — colori luminosi, naturali e duraturi. Specialità di Daniela.</p></div></div>
+    <div class="svc-card"><span class="svc-icon">💇</span><div><div class="svc-name">Taglio & Piega</div><p class="svc-desc">Tagli personalizzati per donna — classici o d'avanguardia, sempre impeccabili.</p></div></div>
+    <div class="svc-card"><span class="svc-icon">✨</span><div><div class="svc-name">Acconciature 3D</div><p class="svc-desc">Acconciature tridimensionali — la specialità rara che solo Daniela offre in tutta la provincia.</p></div></div>
+    <div class="svc-card"><span class="svc-icon">💆</span><div><div class="svc-name">Massaggio Cuoio Capelluto</div><p class="svc-desc">Massaggio relax su cuoio capelluto — per coccolare il cliente e favorire il benessere dei capelli.</p></div></div>
+    <div class="svc-card"><span class="svc-icon">💅</span><div><div class="svc-name">Hair Extensions</div><p class="svc-desc">Applicazione professionale di extensions — volume, lunghezza e naturalezza garantiti.</p></div></div>
+    <div class="svc-card"><span class="svc-icon">🌿</span><div><div class="svc-name">Trattamenti Naturali</div><p class="svc-desc">Trattamenti con la linea naturale/biologica/vegana firmata Daniela Calbi — benessere vero per i tuoi capelli.</p></div></div>
+  </div>
+</section>
+
+<!-- ACCADEMIA -->
+<div class="accademia">
+  <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=1200&q=80" alt="Accademia Hairstylist">
+  <div class="acc-overlay">
+    <p class="acc-tag">🎓 Docente Accademia</p>
+    <h2 class="acc-title">Daniela Forma i Futuri Stylist</h2>
+    <p class="acc-sub">Docente certificata di Accademia per Hairstylist — Daniela insegna colorazione avanzata, acconciature 3D e tecniche di taglio alle nuove generazioni.</p>
+  </div>
+</div>
+
+<!-- PRODOTTI -->
+<section class="prodotti">
+  <p class="prod-tag">La Linea Daniela Calbi</p>
+  <h2 class="prod-title">Naturale, Biologico e Vegano</h2>
+  <p class="prod-sub">Daniela ha creato la sua linea di prodotti — naturale, biologica e vegana — per portare il massimo benessere ai capelli di ogni cliente.</p>
+  <div class="prod-cards">
+    <div class="prod-card">
+      <span class="prod-icon">🌿</span>
+      <div class="prod-name">Linea Naturale</div>
+      <p class="prod-desc">Ingredienti 100% naturali — rispetto per i tuoi capelli e per l'ambiente.</p>
+    </div>
+    <div class="prod-card">
+      <span class="prod-icon">🧪</span>
+      <div class="prod-name">Linea Biologica</div>
+      <p class="prod-desc">Formulazioni biologiche certificate — per capelli sani e forti nel rispetto della natura.</p>
+    </div>
+    <div class="prod-card">
+      <span class="prod-icon">🐾</span>
+      <div class="prod-name">Linea Vegana</div>
+      <p class="prod-desc">Prodotti completamente vegani — bellezza etica e sostenibile firmata Daniela Calbi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RECENSIONI -->
+<section class="recensioni">
+  <div class="rev-header">
+    <span class="rev-num">4.9</span>
+    <div class="rev-stars">★★★★★</div>
+    <div class="rev-label">19 Recensioni Google · 4.9 Stelle</div>
+  </div>
+  <div class="rev-grid">
+    <div class="rev-card">
+      <p class="rev-text">"Daniela è un'artista! Il mio balayage è venuto straordinario — colori perfetti, tecnica impeccabile. Non mi sarei mai aspettata tanto talento a Stigliano!"</p>
+      <div class="rev-author">Recensione Google · Stigliano</div>
+    </div>
+    <div class="rev-card">
+      <p class="rev-text">"Non è solo una parrucchiera — è un'esperienza completa. Consulenza attenta, prodotti naturali di qualità e un risultato che supera ogni aspettativa. Bravissima!"</p>
+      <div class="rev-author">Recensione Google · Matera</div>
+    </div>
+    <div class="rev-card">
+      <p class="rev-text">"Daniela ha una passione vera per il suo lavoro che si vede in ogni dettaglio. Le extensions sono perfettissime — naturali come i miei capelli. Grazie!"</p>
+      <div class="rev-author">Recensione Google · Stigliano</div>
+    </div>
+    <div class="rev-card">
+      <p class="rev-text">"Finalmente ho trovato qualcuno che sa davvero cosa fare con i capelli ricci! Daniela è una professionista eccezionale. La consiglio a tutte!"</p>
+      <div class="rev-author">Recensione Google · Matera</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<div class="social">
+  <div class="soc-title">Seguici su Instagram ✨</div>
+  <span class="soc-count">19.000</span>
+  <span class="soc-label">Follower su Instagram</span>
+  <div class="soc-links">
+    <a href="https://www.instagram.com/capellidincantocalbidaniela/" target="_blank" class="soc-btn">📸 @capellidincantocalbidaniela</a>
+    <a href="https://www.facebook.com/capellidincanto.danielacalbi/" target="_blank" class="soc-btn">📘 Facebook</a>
+  </div>
+</div>
+
+<!-- CONTATTI -->
+<section class="contatti" id="contatti">
+  <div>
+    <p class="ct-tag">Contattaci</p>
+    <h2 class="ct-title">Prenota con Daniela</h2>
+    <div class="ct-rule"></div>
+    <p class="ct-text">Scrivi su WhatsApp o chiamaci — Daniela risponde personalmente e trova il momento perfetto per te!</p>
+    <div class="c-item"><div class="c-icon">📞</div><div class="c-info"><strong>WhatsApp / Telefono</strong><a href="https://wa.me/393286917016">+39 328 691 7016</a></div></div>
+    <div class="c-item"><div class="c-icon">📍</div><div class="c-info"><strong>Indirizzo</strong><span>Corso Vittorio Emanuele 4, 75018 Stigliano (MT)</span></div></div>
+    <div class="c-item"><div class="c-icon">📸</div><div class="c-info"><strong>Instagram</strong><a href="https://www.instagram.com/capellidincantocalbidaniela/" target="_blank">@capellidincantocalbidaniela</a></div></div>
+    <div class="c-item"><div class="c-icon">📘</div><div class="c-info"><strong>Facebook</strong><a href="https://www.facebook.com/capellidincanto.danielacalbi/" target="_blank">Capelli D'incanto di Daniela Calbi</a></div></div>
+  </div>
+  <div class="orari">
+    <div class="orari-title">Orari di Apertura ✦</div>
+    <div class="o-row"><span class="o-day">Lunedì</span><span class="o-time">9:00–13:00 / 15:30–19:30</span></div>
+    <div class="o-row"><span class="o-day">Martedì</span><span class="o-time">9:00–13:00 / 15:30–19:30</span></div>
+    <div class="o-row"><span class="o-day">Mercoledì</span><span class="o-closed">Chiuso</span></div>
+    <div class="o-row"><span class="o-day">Giovedì</span><span class="o-time">9:00–13:00 / 15:30–19:30</span></div>
+    <div class="o-row"><span class="o-day">Venerdì</span><span class="o-time">9:00–13:00 / 15:30–19:30</span></div>
+    <div class="o-row"><span class="o-day">Sabato</span><span class="o-time">9:00–13:00 / 15:30–19:30</span></div>
+    <div class="o-row" style="border:none"><span class="o-day">Domenica</span><span class="o-closed">Chiuso</span></div>
+    <div class="wa-btn-wrap">
+      <a href="https://wa.me/393286917016" target="_blank" class="wa-btn">💬 Prenota su WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Capelli <span>D'incanto</span></div>
+    <div class="footer-sub">Daniela Calbi · Stigliano · Matera · Basilicata · Italia</div>
+  </div>
+  <div class="footer-info">
+    Corso Vittorio Emanuele 4 · 75018 Stigliano (MT)<br>
+    +39 328 691 7016 · @capellidincantocalbidaniela
+  </div>
+</footer>
+</body>
+</html>
